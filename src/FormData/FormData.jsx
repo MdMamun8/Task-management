@@ -1,6 +1,5 @@
 import  { useContext, useState } from 'react'
 import  { GlobalContext } from '../Global/GlobalData'
-import ShowTask from '../ShowTask/ShowTask'
 
 const FormData = () => {
     const {dispatch} = useContext(GlobalContext)
@@ -19,9 +18,6 @@ const FormData = () => {
     const handleEditInput = (e) => {
               
       e.preventDefault()
-    }
-    const updateEdit = () => {
-      setIsEdit(true)
     }
   return (
     <div>
@@ -47,7 +43,6 @@ const FormData = () => {
 />
 <button>Add Todo</button>
 </form> }
-<ShowTask updateEdit ={updateEdit}/>
     </div>)
 }
 

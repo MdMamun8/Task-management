@@ -11,6 +11,13 @@ export const reducer = (state, action) => {
         ...state,
         todos: [...state.todos].filter((item) => item.id !== payload),
       };
+      case "UPDATE_TASK":
+      return {
+        ...state,
+        todos: [...state.todos].reduce((acc, curr) => {
+            acc += curr
+        })
+      };
 
     default:
       return state;
