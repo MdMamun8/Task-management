@@ -11,12 +11,18 @@ export const reducer = (state, action) => {
         ...state,
         todos: [...state.todos].filter((item) => item.id !== payload),
       };
-      case "UPDATE_TASK":
+    case "UPDATE_TASK":
       return {
         ...state,
-        todos: [...state.todos].reduce((acc, curr) => {
-            acc += curr
-        })
+        todos: [...state.todos].map((todo) => {
+          if (todo.id === payload.id) {
+            return {
+              ...todo,
+              data: payload.data,
+            };
+          }
+          return todo;
+        }),
       };
 
     default:

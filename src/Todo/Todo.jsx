@@ -1,14 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ShowTask from "../ShowTask/ShowTask";
 import { GlobalContext } from "../Global/GlobalData";
 
 /* eslint-disable no-undef */
 const Todo = () => {
   const { todos } = useContext(GlobalContext);
+  const [editId, setEditId] = useState(null);
   return (
     <div>
       {todos.map((item) => (
-        <ShowTask key={item.id} item={item} />
+        <ShowTask key={item.id} item={item} edit={{ editId, setEditId }} />
       ))}
     </div>
   );

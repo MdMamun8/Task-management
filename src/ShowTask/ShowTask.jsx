@@ -1,21 +1,38 @@
 /* eslint-disable react/prop-types */
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 
-const ShowTask = ({ item}) => {
+const ShowTask = ({ item, edit: { editId, setEditId } }) => {
   const { dispatch } = useContext(GlobalContext);
+  const [updateTask, setUpdateTask] = useState(item.data);
   const deleteTask = (id) => {
     dispatch({ type: "DELETE_TASK", payload: id });
   };
-  const updateTodo = (id) =>{
-    dispatch({type : "UPDATE_TASK",  payload : id})
-  }
+  const updateTodo = (id) => {
+    if (updateTask.trim().length > 0) {
+      setEditId(null);
+      dispatch({ type: "UPDATE_TASK", payload: { id, data: updateTask } });
+    } else alert("write something");
+  };
   return (
     <div>
-      <h2>{item.data}</h2>
+      {editId === item.id ? (
+        <input
+          onChange={(e) => setUpdateTask(e.target.value)}
+          type='text'
+          placeholder='update YOur Task'
+          value={updateTask}
+        />
+      ) : (
+        <h2>{item.data}</h2>
+      )}
       <button onClick={() => deleteTask(item.id)}>delete</button>
-      <button onClick={() =>updateTodo(item.id)}>Update</button>
+      {editId === item.id ? (
+        <button onClick={() => updateTodo(item.id)}>Save</button>
+      ) : (
+        <button onClick={() => setEditId(item.id)}>Edit</button>
+      )}
     </div>
   );
 };
