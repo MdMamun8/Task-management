@@ -12,7 +12,7 @@ const FormData = () => {
         id: Date.now(),
         data,
         date: dateInputRef.current.value,
-        isComplete: false
+        isComplete: false,
       };
       dispatch({ type: "ADD_TODO", payload: tasks });
       setData("");
@@ -35,8 +35,9 @@ const FormData = () => {
               type='text'
               name=''
               id='todo'
+              maxLength={25}
             />
-            <input type='date' ref={dateInputRef} />
+            <input type='date' required ref={dateInputRef} />
             <button>Add Todo</button>
           </div>
         </form>

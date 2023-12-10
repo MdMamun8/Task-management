@@ -2,11 +2,10 @@
 
 import { useContext, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
-
-const ShowTask = ({
-  item,
-  edit: { editId, setEditId },
-}) => {
+import { AiOutlineFileDone } from "react-icons/ai";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { LiaEditSolid } from "react-icons/lia";
+const ShowTask = ({ item, edit: { editId, setEditId } }) => {
   const { dispatch } = useContext(GlobalContext);
   const [updateTask, setUpdateTask] = useState(item.data);
   const deleteTask = (id) => {
@@ -19,38 +18,55 @@ const ShowTask = ({
     } else alert("write something");
   };
   const completeTask = (id) => {
-
     dispatch({ type: "COMPLETE__TASK", payload: id });
   };
   return (
-    <div>
+    <div className='tasks'>
       {/* complete */}
-      {item.isComplete ? (
-        <h2>
-          <del>{item.data + item.date + " ✔"}</del>
-        </h2>
-      ) : (
-        <h2>{item.data + item.date}</h2>
-      )}
-
+      <div className='all-output'>
+        {item.isComplete ? (
+          <h2>
+            {/* */}
+            <del>
+              <span>
+                {" "}
+                {" ✔ "} {item.data}
+              </span>{" "}
+              <span>{item.date} </span>
+            </del>
+          </h2>
+        ) : (
+          <h2>
+            {" "}
+            <span>Task : <br></br>{item.data}</span> <span>Date : <br></br>{item.date} </span>
+          </h2>
+        )}
+      </div>
+      <div className="all-button">
       {editId === item.id ? (
         <input
           onChange={(e) => setUpdateTask(e.target.value)}
           type='text'
           placeholder='update YOur Task'
           value={updateTask}
+          maxLength={25}
         />
       ) : (
-        <div>
-          <button onClick={() => completeTask(item.id)}>Completed</button>
-        </div>
+        <div className='complete-button'>
+          <button onClick={() => completeTask(item.id)}>
+            <i>
+              <AiOutlineFileDone />
+            </i>
+          </button>
+      </div>
       )}
-      <button onClick={() => deleteTask(item.id)}>delete</button>
+      <button className="delete-button" onClick={() => deleteTask(item.id)}><i><FaDeleteLeft /></i></button>
       {editId === item.id ? (
         <button onClick={() => updateTodo(item.id)}>Save</button>
-      ) : (
-        <button onClick={() => setEditId(item.id)}>Edit</button>
-      )}
+        ) : (
+          <button className="edit-button" onClick={() => setEditId(item.id)}><i><LiaEditSolid /></i></button>
+          )}
+      </div>
     </div>
   );
 };

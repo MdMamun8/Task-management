@@ -5,5 +5,67 @@
     display: inline-block;
 }
 .container h1 {
-    text-shadow: 1px 4px 13px rgba(126,0,0,1);
+    text-shadow: 1px 4px 13px rgb(113, 196, 255); 
+}
+.tasks {
+    max-width: clamp(5rem, 60vw, 50rem);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+ place-items: center;
+}
+input {
+    cursor: pointer;
+}
+.tasks h2 {
+    border: 1px solid skyblue;
+    display: flex;
+    gap: 20px;
+    font-size: clamp(10px, 5vw, 15px);
+    padding: 5px;
+}
+.tasks button {
+    margin: auto 0;
+    padding: 5px;
+    align-items: center;
+    background: skyblue;
+}
+.complete-button button   {
+    color: white;
+    position: relative;
+    transition: 0.5s all ease;
+    border: none;
+}
+.complete-button button:hover {
+    transform: scale(1.1);
+    color: black;
+   background: skyblue;
+   /* border: none; */
+}
+.delete-button {
+  color: white;
+  transition: 0.5s all ease;
+  border: none;
+}
+.delete-button:hover {
+    color: red;
+    transform: scale(1.1);
+    background: skyblue;
+    border: none;
+}
+.edit-button {
+    color:  white;
+    border: none;
+    transition: 0.5s all ease;
+}
+.edit-button:hover {
+    color: black;
+    transform: scale(1.1);
+    background: skyblue;
+}
+.all-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
