@@ -1,8 +1,22 @@
-.add-form form div {
-    border: 2px solid black;
+.add-form form  {
+    /* border: 2px solid black; */
     padding: 1rem;
     border-radius: 5px;
     display: inline-block;
+    height: 80px;
+    width: 270px;
+}
+.add-form label {
+    text-shadow: 1px 4px 13px rgb(113, 196, 255); 
+}
+.input-button-add  {
+    display: flex;
+    margin: 1rem;
+    gap: 2rem;
+}
+.date {
+    border: 2px solid skyblue;
+    color: skyblue;
 }
 .container h1 {
     text-shadow: 1px 4px 13px rgb(113, 196, 255); 
@@ -15,8 +29,14 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
  place-items: center;
 }
-input {
+button {
     cursor: pointer;
+    border-radius: 5px;
+}
+input {
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    box-shadow: 1px 4px 13px rgb(99, 147, 181); ;
 }
 .tasks h2 {
     border: 1px solid skyblue;
@@ -25,11 +45,23 @@ input {
     font-size: clamp(10px, 5vw, 15px);
     padding: 5px;
 }
-.tasks button {
+ button {
     margin: auto 0;
     padding: 5px;
     align-items: center;
     background: skyblue;
+}
+.add-button {
+    background-color: green;
+    color: white;
+    transition: 0.5s all ease;
+    border: 1px solid white;
+}
+.add-button:hover {
+    background: white;
+    color: green;
+    transform: scale(1.1);
+    border: 1px solid green;
 }
 .complete-button button   {
     color: white;

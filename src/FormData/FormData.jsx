@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 import "./FormData.css";
+import { RiAddCircleFill } from "react-icons/ri";
 const FormData = () => {
   const { dispatch } = useContext(GlobalContext);
   const [data, setData] = useState("");
@@ -27,8 +28,8 @@ const FormData = () => {
       </div>
       <div className='add-form'>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor='todo'></label>
+          <div className="">
+            <label htmlFor='todo'>Your Task : </label>
             <input
               onChange={(e) => setData(e.target.value)}
               value={data}
@@ -36,9 +37,12 @@ const FormData = () => {
               name=''
               id='todo'
               maxLength={25}
+              placeholder="Read Book"
             />
-            <input type='date' required ref={dateInputRef} />
-            <button>Add Todo</button>
+           <div className="input-button-add">
+           <input className="date" type='date' required ref={dateInputRef} />
+            <button className="add-button"><i><RiAddCircleFill /></i> Add Todo</button>
+           </div>
           </div>
         </form>
       </div>
