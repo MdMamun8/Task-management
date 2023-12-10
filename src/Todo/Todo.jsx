@@ -6,17 +6,14 @@ import { GlobalContext } from "../Global/GlobalData";
 const Todo = () => {
   const { todos } = useContext(GlobalContext);
   const [editId, setEditId] = useState(null);
-  console.log(todos)
-  return (
-    <div>
+  return todos.length > 0 ? (
+    <div className='todos'>
       {todos.map((item) => (
-        <ShowTask
-          key={item.id}
-          item={item}
-          edit={{ editId, setEditId }}
-        />
+        <ShowTask key={item.id} item={item} edit={{ editId, setEditId }} />
       ))}
     </div>
+  ) : (
+    <h1 className='default-heading1'>No Task Added Yet</h1>
   );
 };
 

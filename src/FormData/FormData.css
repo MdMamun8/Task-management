@@ -19,7 +19,8 @@
     color: skyblue;
 }
 .container h1 {
-    text-shadow: 1px 4px 13px rgb(113, 196, 255); 
+    /* text-shadow: 1px 4px 13px rgb(113, 196, 255);  */
+    font-family: M PLUS Code Latin,monospace;
 }
 .tasks {
     max-width: clamp(5rem, 60vw, 50rem);
@@ -100,4 +101,8 @@ input {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+.default-heading1 {
+    font-family: M PLUS Code Latin,monospace;
+    /* text-shadow: 1px 4px 13px rgb(162, 17, 17);  */
 }
