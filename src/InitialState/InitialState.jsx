@@ -1,4 +1,3 @@
 export const InitialState = {
-    todos: [],
-    isediting: "",
-  };
+  todos: [],
+};

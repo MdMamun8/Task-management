@@ -6,10 +6,15 @@ import { GlobalContext } from "../Global/GlobalData";
 const Todo = () => {
   const { todos } = useContext(GlobalContext);
   const [editId, setEditId] = useState(null);
+  console.log(todos)
   return (
     <div>
       {todos.map((item) => (
-        <ShowTask key={item.id} item={item} edit={{ editId, setEditId }} />
+        <ShowTask
+          key={item.id}
+          item={item}
+          edit={{ editId, setEditId }}
+        />
       ))}
     </div>
   );

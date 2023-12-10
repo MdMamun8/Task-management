@@ -21,10 +21,24 @@ export const reducer = (state, action) => {
               data: payload.data,
             };
           }
-          return todo;
+          return todo
         }),
       };
-
+      case "COMPLETE__TASK":
+        console.log(payload)
+        return {
+          ...state,
+          todos: [...state.todos].map((todo) => {
+            if (todo.id === payload) {
+              return {
+                ...todo,
+                isComplete: !todo.isComplete,
+              };
+            }
+            return todo
+          }),
+        };
+  
     default:
       return state;
   }
