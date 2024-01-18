@@ -7,6 +7,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { LiaEditSolid } from "react-icons/lia";
 const ShowTask = ({ item, edit: { editId, setEditId } }) => {
   const { dispatch } = useContext(GlobalContext);
+
   const [updateTask, setUpdateTask] = useState(item.data);
   const deleteTask = (id) => {
     dispatch({ type: "DELETE_TASK", payload: id });
@@ -32,40 +33,47 @@ const ShowTask = ({ item, edit: { editId, setEditId } }) => {
                 {" "}
                 {" ✔ "} {item.data}
               </span>{" "}
-              <span>{item.date} </span>
             </del>
           </h2>
         ) : (
           <h2>
             {" "}
-            <span>Task : <br></br>{item.data}</span> <span>Date : <br></br>{item.date} </span>
+            <span>Task : {item.data}</span>
           </h2>
         )}
       </div>
-      <div className="all-button">
-      {editId === item.id ? (
-        <input
-          onChange={(e) => setUpdateTask(e.target.value)}
-          type='text'
-          placeholder='update YOur Task'
-          value={updateTask}
-          maxLength={25}
-        />
-      ) : (
-        <div className='complete-button'>
-          <button onClick={() => completeTask(item.id)}>
+      <div className='all-button'>
+        {editId === item.id ? (
+          <input
+            onChange={(e) => setUpdateTask(e.target.value)}
+            type='text'
+            placeholder='update YOur Task'
+            value={updateTask}
+            maxLength={25}
+          />
+        ) : (
+          <div className='complete-button'>
+            <button onClick={() => completeTask(item.id)}>
+              <i>
+                <AiOutlineFileDone />
+              </i>
+            </button>
+          </div>
+        )}
+        <button className='delete-button' onClick={() => deleteTask(item.id)}>
+          <i>
+            <FaDeleteLeft />
+          </i>
+        </button>
+        {editId === item.id ? (
+          <button onClick={() => updateTodo(item.id)}>Save</button>
+        ) : (
+          <button className='edit-button' onClick={() => setEditId(item.id)}>
             <i>
-              <AiOutlineFileDone />
+              <LiaEditSolid />
             </i>
           </button>
-      </div>
-      )}
-      <button className="delete-button" onClick={() => deleteTask(item.id)}><i><FaDeleteLeft /></i></button>
-      {editId === item.id ? (
-        <button onClick={() => updateTodo(item.id)}>Save</button>
-        ) : (
-          <button className="edit-button" onClick={() => setEditId(item.id)}><i><LiaEditSolid /></i></button>
-          )}
+        )}
       </div>
     </div>
   );

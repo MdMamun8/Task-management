@@ -12,6 +12,7 @@ function GlobalData({ children }) {
     todos: state.todos,
     dispatch,
   };
+ 
   return (
     <GlobalContext.Provider value={values}>{children}</GlobalContext.Provider>
   );

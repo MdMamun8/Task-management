@@ -1,23 +1,34 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 import "./FormData.css";
+
+import "react-toastify/dist/ReactToastify.css";
 import { RiAddCircleFill } from "react-icons/ri";
+import Swal from "sweetalert2";
 const FormData = () => {
-  const { dispatch } = useContext(GlobalContext);
+  // dispatch
+  const { dispatch, todos } = useContext(GlobalContext);
   const [data, setData] = useState("");
-  const dateInputRef = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (data.trim().length > 0) {
       const tasks = {
         id: Date.now(),
         data,
-        date: dateInputRef.current.value,
         isComplete: false,
       };
       dispatch({ type: "ADD_TODO", payload: tasks });
       setData("");
-    } else alert("please input something");
+    } else
+      Swal.fire({
+        icon: "error",
+        title: "Please Add Task",
+        text: "Okay?",
+      });
+  };
+  const completedTasks = () => {
+    
   };
   return (
     <div className='container'>
@@ -25,24 +36,32 @@ const FormData = () => {
         <h1>
           <span>Task Management</span> Application
         </h1>
+        {todos.length ? (
+          <h2>Your Total Task {todos.length}</h2>
+        ) : (
+          <h2>no task</h2>
+        )}
       </div>
       <div className='add-form'>
         <form onSubmit={handleSubmit}>
-          <div className="">
+          <div className=''>
             <label htmlFor='todo'>Your Task : </label>
             <input
               onChange={(e) => setData(e.target.value)}
               value={data}
               type='text'
-              name=''
               id='todo'
               maxLength={25}
-              placeholder="Read Book"
+              placeholder='Add your task'
             />
-           <div className="input-button-add">
-           <input className="date" type='date' required ref={dateInputRef} />
-            <button className="add-button"><i><RiAddCircleFill /></i> Add Todo</button>
-           </div>
+            <div className='input-button-add'>
+              <button className='add-button'>
+                <i>
+                  <RiAddCircleFill />
+                </i>{" "}
+                Add Todo
+              </button>
+            </div>
           </div>
         </form>
       </div>
