@@ -38,7 +38,9 @@ const ShowTask = ({ item, edit: { editId, setEditId } }) => {
         ) : (
           <h2>
             {" "}
-            <span>Task : {item.data}</span>
+            <span>
+              <span className='single-task'>Task :</span> {item.data}
+            </span>
           </h2>
         )}
       </div>

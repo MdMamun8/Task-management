@@ -1,107 +1,120 @@
-.add-form form  {
-    /* border: 2px solid black; */
-    padding: 1rem;
-    border-radius: 5px;
-    display: inline-block;
-    height: 80px;
-    width: 270px;
+.add-form form {
+  /* border: 2px solid black; */
+  padding: 1rem;
+  border-radius: 5px;
+  display: inline-block;
+  height: 80px;
+  width: 270px;
 }
 .add-form label {
-    text-shadow: 1px 4px 13px rgb(113, 196, 255); 
+  text-shadow: 1px 4px 13px rgb(113, 196, 255);
 }
-.input-button-add  {
-    display: flex;
-    margin: 1rem;
-    gap: 2rem;
-}
-.date {
-    border: 2px solid skyblue;
-    color: skyblue;
+.input-button-add {
+  display: flex;
+  margin: 1rem;
+  gap: 2rem;
 }
 .container h1 {
-    /* text-shadow: 1px 4px 13px rgb(113, 196, 255);  */
-    font-family: M PLUS Code Latin,monospace;
+  font-family: M PLUS Code Latin, monospace;
 }
 .tasks {
-    max-width: clamp(5rem, 60vw, 50rem);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  max-width: clamp(5rem, 60vw, 50rem);
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-transform: capitalize;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
- place-items: center;
+  place-items: center;
 }
 button {
-    cursor: pointer;
-    border-radius: 5px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 input {
-    border: 1px solid skyblue;
-    border-radius: 5px;
-    box-shadow: 1px 4px 13px rgb(99, 147, 181); ;
+  padding: 5px 3rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 4px 13px rgb(40, 60, 73);
+}
+input::placeholder {
+    text-align: center;
+}
+.haveTask {
+  color: rgb(51, 83, 96);
 }
 .tasks h2 {
-    border: 1px solid skyblue;
-    display: flex;
-    gap: 20px;
-    font-size: clamp(10px, 5vw, 15px);
-    padding: 5px;
+  border: 1px solid rgb(51, 83, 96);;
+  border-radius: 5px;
+  font-size: clamp(10px, 5vw, 15px);
+  padding: 10px;
+  color: rgb(51, 83, 96);
+  font-weight: bolder;
+  text-transform: uppercase;
 }
- button {
-    margin: auto 0;
-    padding: 5px;
-    align-items: center;
-    background: skyblue;
+.single-task {
+    color: black;;
+}
+button {
+  margin: auto 0;
+  padding: 5px;
+  align-items: center;
+  background: skyblue;
+}
+.input-button-add {
+  display: flex;
+  justify-content: center;
 }
 .add-button {
-    background-color: green;
-    color: white;
-    transition: 0.5s all ease;
-    border: 1px solid white;
+  background-color: rgb(51, 83, 96);
+  color: white;
+  transition: .5s all ease;
+  border: 1px solid white;
+  padding: 5px 20px;
 }
 .add-button:hover {
-    background: white;
-    color: green;
-    transform: scale(1.1);
-    border: 1px solid green;
+  background: white;
+  color: black;
+  transform: scale(1);
+  border: 1px solid rgb(51, 83, 96);
 }
-.complete-button button   {
-    color: white;
-    position: relative;
-    transition: 0.5s all ease;
-    border: none;
-}
-.complete-button button:hover {
-    transform: scale(1.1);
-    color: black;
-   background: skyblue;
-   /* border: none; */
-}
-.delete-button {
+.complete-button button {
   color: white;
+  position: relative;
   transition: 0.5s all ease;
   border: none;
 }
+.complete-button button:hover {
+  transform: scale(1.1);
+  color: black;
+  background: skyblue;
+  /* border: none; */
+}
+.delete-button {
+  color: red;
+  transition: 0.5s all ease;
+  border: none;
+ padding: 5px 6px;
+}
 .delete-button:hover {
-    color: red;
-    transform: scale(1.1);
-    background: skyblue;
-    border: none;
+  color: red;
+  transform: scale(1.1);
+  background: skyblue;
+  border: none;
 }
 .edit-button {
-    color:  white;
-    border: none;
-    transition: 0.5s all ease;
+  color: white;
+  border: none;
+  transition: 0.5s all ease;
 }
 .edit-button:hover {
-    color: black;
-    transform: scale(1.1);
-    background: skyblue;
+  color: black;
+  transform: scale(1.1);
+  background: skyblue;
 }
 .all-button {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .default-heading1 {
-    font-family: M PLUS Code Latin,monospace;
+  font-family: M PLUS Code Latin, monospace;
 }

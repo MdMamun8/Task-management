@@ -27,40 +27,33 @@ const FormData = () => {
         text: "Okay?",
       });
   };
-  const completedTasks = () => {
-    
-  };
+
   return (
     <div className='container'>
       <div>
         <h1>
-          <span>Task Management</span> Application
+          <span>Task Management Application</span>
         </h1>
         {todos.length ? (
-          <h2>Your Total Task {todos.length}</h2>
+          <h2 className='haveTask'>Your Total Task : {todos.length}</h2>
         ) : (
-          <h2>no task</h2>
+          <h2>No Task Added Yet</h2>
         )}
       </div>
       <div className='add-form'>
         <form onSubmit={handleSubmit}>
           <div className=''>
-            <label htmlFor='todo'>Your Task : </label>
+            <label htmlFor='todo'></label>
             <input
               onChange={(e) => setData(e.target.value)}
               value={data}
               type='text'
               id='todo'
               maxLength={25}
-              placeholder='Add your task'
+              placeholder='Add Your Task'
             />
             <div className='input-button-add'>
-              <button className='add-button'>
-                <i>
-                  <RiAddCircleFill />
-                </i>{" "}
-                Add Todo
-              </button>
+              <button className='add-button'>Add Task</button>
             </div>
           </div>
         </form>
