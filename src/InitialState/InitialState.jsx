@@ -1,4 +1,4 @@
-import { getDataFromLocalStorage } from "../utilis/getDataFromLocalStorage";
+import { getDataFromLocalStorage } from "../utils/getDataFromLocalStorage";
 
 export const InitialState = {
   todos: getDataFromLocalStorage(),
