@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { LiaEditSolid } from "react-icons/lia";
 const ShowTask = ({ item, edit: { editId, setEditId } }) => {
-  const { dispatch, todos } = useContext(GlobalContext);
+  const { dispatch } = useContext(GlobalContext);
 
   const [updateTask, setUpdateTask] = useState(item.data);
   const deleteTask = (id) => {
@@ -22,10 +22,6 @@ const ShowTask = ({ item, edit: { editId, setEditId } }) => {
   const completeTask = (id) => {
     dispatch({ type: "COMPLETE__TASK", payload: id });
   };
-  useEffect(() => {
-    localStorage.setItem("task", JSON.stringify(todos));
-  }, [todos]);
-  //get the added task from local storage
 
   return (
     <div className='tasks'>
