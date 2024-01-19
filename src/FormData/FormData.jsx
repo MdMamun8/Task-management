@@ -1,9 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 import "./FormData.css";
 
-import "react-toastify/dist/ReactToastify.css";
-import { RiAddCircleFill } from "react-icons/ri";
 import Swal from "sweetalert2";
 const FormData = () => {
   // dispatch

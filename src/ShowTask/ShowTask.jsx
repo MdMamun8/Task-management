@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../Global/GlobalData";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { LiaEditSolid } from "react-icons/lia";
 const ShowTask = ({ item, edit: { editId, setEditId } }) => {
-  const { dispatch } = useContext(GlobalContext);
+  const { dispatch, todos } = useContext(GlobalContext);
 
   const [updateTask, setUpdateTask] = useState(item.data);
   const deleteTask = (id) => {
     dispatch({ type: "DELETE_TASK", payload: id });
   };
+
   const updateTodo = (id) => {
     if (updateTask.trim().length > 0) {
       dispatch({ type: "UPDATE_TASK", payload: { id, data: updateTask } });
@@ -21,6 +22,11 @@ const ShowTask = ({ item, edit: { editId, setEditId } }) => {
   const completeTask = (id) => {
     dispatch({ type: "COMPLETE__TASK", payload: id });
   };
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(todos));
+  }, [todos]);
+  //get the added task from local storage
+
   return (
     <div className='tasks'>
       {/* complete */}
